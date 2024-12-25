@@ -1,0 +1,2 @@
+# exactly_10_seconds_game_android_app
+10秒ジャストで止めるゲーム
