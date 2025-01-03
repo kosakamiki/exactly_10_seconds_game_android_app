@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">exactly_10_seconds_game_android_app</string>
+<string name="app_name">exactly_10_seconds_game_android_app</string>
+<string name="sec">00.0秒</string>
+<string name="button_text_start">スタート</string>
+<string name="button_text_stop">ストップ</string>
+<string name="button_text_retry">リトライ</string>
+<string name="speech_bubble_success">成功！！\n(｀・∀・)ﾉｲｪ-ｲ！</string>
+<string name="speech_bubble_failure">残念(´；ω；｀)</string>
+<string name="speech_bubble_close">"惜しい(> &lt;)"</string>
 </resources>
