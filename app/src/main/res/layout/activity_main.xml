@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="1086.px"
+            android:id="@+id/timeTextView"            android:layout_width="1086.px"
             android:layout_height="382.px"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="916.px"
