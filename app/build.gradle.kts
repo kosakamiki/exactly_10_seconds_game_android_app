@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.exactly_10_seconds_game_android_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.exactly_10_seconds_game_android_app"
