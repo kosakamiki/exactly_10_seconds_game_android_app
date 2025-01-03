@@ -7,13 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="1086.px"
+            android:layout_height="382.px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="916.px"
+            android:padding="15dp"
+            android:text="@string/sec"
+            android:textSize="200.px"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="801.px"
+            android:layout_height="489.px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="737.px"
+            android:background="@drawable/custom_button"
+            android:text="@string/button_text_start"
+            android:textColor="@color/black"
+            android:textSize="100.px"
+            app:backgroundTint="@null" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
