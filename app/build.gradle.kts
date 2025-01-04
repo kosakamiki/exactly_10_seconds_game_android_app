@@ -7,6 +7,10 @@ android {
     namespace = "com.example.exactly_10_seconds_game_android_app"
     compileSdk = 35
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.exactly_10_seconds_game_android_app"
         minSdk = 33
@@ -45,4 +49,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.timber)
 }
