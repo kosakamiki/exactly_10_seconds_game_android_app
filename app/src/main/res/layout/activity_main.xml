@@ -7,6 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/speechBubble"
+        android:layout_width="1200px"
+        android:layout_height="633px"
+        android:layout_marginTop="206px"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/speech_bubble"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/resultTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/speechBubble"
+        android:layout_width="match_parent"
+        android:layout_height="520px"
+        android:text="@string/speech_bubble_success"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="150px" />
+
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="271dp"
