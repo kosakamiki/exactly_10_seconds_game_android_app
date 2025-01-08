@@ -8,19 +8,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.example.exactly_10_seconds_game_android_app.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val dateFormat = SimpleDateFormat("ss.S秒", Locale.getDefault())
 
     companion object {
         const val INTERVAL_MILLISECOND: Long = 10 // 処理実行周期
     }
 
     var time: Long = 0
-    val dateFormat = SimpleDateFormat("ss.S秒", Locale.getDefault())
 
     val handler = Handler(Looper.getMainLooper())
     private val timer = object : Runnable {
@@ -59,19 +60,57 @@ class MainActivity : AppCompatActivity() {
                     // スタートボタン押下
                     handler.post(timer)
                     binding.button.text = getString(R.string.button_text_stop)
+                    binding.speechBubble.isVisible = false
                 }
 
                 getString(R.string.button_text_stop) -> {
                     // ストップボタン押下
                     handler.removeCallbacks(timer)
                     binding.button.text = getString(R.string.button_text_retry)
+                    binding.speechBubble.isVisible = true
+                    // 計測した時間をString型からLong型に変換
+                    val countTimeStringOnDecimalPointAndUnit = binding.timeTextView.text.toString()
+                    val countTimeString = countTimeStringOnDecimalPointAndUnit.replace(
+                        regex = "[.秒]".toRegex(),
+                        replacement = ""
+                    )
+                    val countTimeInt = countTimeString.toInt()
+                    val countTimeLong = countTimeInt.toLong()
+                    binding.resultTextView.text = getResultComment(countTimeLong)
                 }
 
                 else -> {
                     binding.button.text = getString(R.string.button_text_start)
                     time = 0
                     binding.timeTextView.text = dateFormat.format(time)
+                    binding.speechBubble.isVisible = false
                 }
+            }
+        }
+    }
+
+    /**
+     * 結果に対するコメントを取得する.
+     *
+     * @param countTime 計った時間
+     * @return 結果に対するのコメント
+     */
+    private fun getResultComment(countTime: Long): String {
+        val successTime = 100L
+        val smallCloseTime = 95L
+        val largeCloseTime = 105L
+
+        when (countTime) {
+            successTime -> {
+                return getString(R.string.speech_bubble_success)
+            }
+
+            in smallCloseTime..largeCloseTime -> {
+                return getString(R.string.speech_bubble_close)
+            }
+
+            else -> {
+                return getString(R.string.speech_bubble_failure)
             }
         }
     }
