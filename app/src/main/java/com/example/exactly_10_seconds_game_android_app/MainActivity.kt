@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.example.exactly_10_seconds_game_android_app.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -59,18 +60,21 @@ class MainActivity : AppCompatActivity() {
                     // スタートボタン押下
                     handler.post(timer)
                     binding.button.text = getString(R.string.button_text_stop)
+                    binding.speechBubble.isVisible = false
                 }
 
                 getString(R.string.button_text_stop) -> {
                     // ストップボタン押下
                     handler.removeCallbacks(timer)
                     binding.button.text = getString(R.string.button_text_retry)
+                    binding.speechBubble.isVisible = true
                 }
 
                 else -> {
                     binding.button.text = getString(R.string.button_text_start)
                     time = 0
                     binding.timeTextView.text = dateFormat.format(time)
+                    binding.speechBubble.isVisible = false
                 }
             }
         }
