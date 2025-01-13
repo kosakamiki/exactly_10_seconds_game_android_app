@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
      * 結果に対するコメントを取得する.
      *
      * @param countTime 計った時間
-     * @return 結果に対するのコメント
+     * @return 結果に対するコメント
      */
     private fun getResultComment(countTime: Long): String {
         val successTime = 100L
