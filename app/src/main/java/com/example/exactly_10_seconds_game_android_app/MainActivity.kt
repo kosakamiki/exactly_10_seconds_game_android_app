@@ -15,13 +15,13 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val dateFormat = SimpleDateFormat("ss.S秒", Locale.getDefault())
 
     companion object {
         const val INTERVAL_MILLISECOND: Long = 10 // 処理実行周期
     }
 
     var time: Long = 0
-    val dateFormat = SimpleDateFormat("ss.S秒", Locale.getDefault())
 
     val handler = Handler(Looper.getMainLooper())
     private val timer = object : Runnable {
@@ -68,6 +68,15 @@ class MainActivity : AppCompatActivity() {
                     handler.removeCallbacks(timer)
                     binding.button.text = getString(R.string.button_text_retry)
                     binding.speechBubble.isVisible = true
+                    // 計測した時間をString型からLong型に変換
+                    val countTimeStringOnDecimalPointAndUnit = binding.timeTextView.text.toString()
+                    val countTimeString = countTimeStringOnDecimalPointAndUnit.replace(
+                        regex = "[.秒]".toRegex(),
+                        replacement = ""
+                    )
+                    val countTimeInt = countTimeString.toInt()
+                    val countTimeLong = countTimeInt.toLong()
+                    binding.resultTextView.text = getResultComment(countTimeLong)
                 }
 
                 else -> {
@@ -76,6 +85,32 @@ class MainActivity : AppCompatActivity() {
                     binding.timeTextView.text = dateFormat.format(time)
                     binding.speechBubble.isVisible = false
                 }
+            }
+        }
+    }
+
+    /**
+     * 結果に対するコメントを取得する.
+     *
+     * @param countTime 計った時間
+     * @return 結果に対するコメント
+     */
+    private fun getResultComment(countTime: Long): String {
+        val successTime = 100L
+        val smallCloseTime = 95L
+        val largeCloseTime = 105L
+
+        when (countTime) {
+            successTime -> {
+                return getString(R.string.speech_bubble_success)
+            }
+
+            in smallCloseTime..largeCloseTime -> {
+                return getString(R.string.speech_bubble_close)
+            }
+
+            else -> {
+                return getString(R.string.speech_bubble_failure)
             }
         }
     }
