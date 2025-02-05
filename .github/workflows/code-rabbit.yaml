@@ -20,19 +20,9 @@ concurrency:
 jobs:
   review:
     runs-on: ubuntu-latest
-    uses: actions/checkout@v3
-    with:
-      repository: ${{github.event.pull_request.head.repo.full_name}}
-      ref: ${{github.event.pull_request.head.ref}}
-      submodules: false
-    # Checkout the repo
-    uses: actions/checkout@v3
-    with:
-    # Repository name with owner.For example, actions/checkout
-      Default: ${{ github.repository }}
-  # "my_first_job"というジョブIDでジョブを定義
-  my_first_job:
-    name: My first job
-  # "my_second_job"というジョブIDでジョブを定義
-  my_second_job:
-    name: My second job
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+          ref: ${{github.event.pull_request.head.ref}}
+          submodules: false
