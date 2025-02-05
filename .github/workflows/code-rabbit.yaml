@@ -20,25 +20,19 @@ concurrency:
 jobs:
   review:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: ${{github.event.pull_request.head.repo.full_name}}
-          ref: ${{github.event.pull_request.head.ref}}
-          submodules: false
-      # Checkout the repo
-      - uses: actions/checkout@v3
-        with:
-        # Repository name with owner.For example, actions/checkout
-          Default: ${{ github.repository }}
-      - uses: ./
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          debug: true
-          review_comment_lgtm: false
-          openai_heavy_model: gpt-4
-          path_filters: |
-            !dist/**
-            !**/*.lock
+    uses: actions/checkout@v3
+    with:
+      repository: ${{github.event.pull_request.head.repo.full_name}}
+      ref: ${{github.event.pull_request.head.ref}}
+      submodules: false
+    # Checkout the repo
+    uses: actions/checkout@v3
+    with:
+    # Repository name with owner.For example, actions/checkout
+      Default: ${{ github.repository }}
+  # "my_first_job"というジョブIDでジョブを定義
+  my_first_job:
+    name: My first job
+  # "my_second_job"というジョブIDでジョブを定義
+  my_second_job:
+    name: My second job
