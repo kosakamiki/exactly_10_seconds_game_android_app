@@ -1,5 +1,4 @@
 # exactly_10_seconds_game_android_app
-10秒ジャストで止めるゲーム
 
 <div id="top"></div>
 
@@ -21,12 +20,16 @@
 <!-- プロジェクト名を記載 -->
 
 ## プロジェクト名
+
 10秒ジャストで止めるゲームアプリ
+
 
 <!-- プロジェクトについて -->
 
 ## プロジェクトについて
-スタートボタン押下でカウントアップを開始し、スタートボタン押下で10.0秒にどれくらい近い時間でカウントを止めることができるかを試みるアプリを実装
+
+
+画面を見ずに10秒ジャストでタイマーを止めるゲームをするアプリを実装
 
 <!-- プロジェクトの概要を記載 -->
 
@@ -64,7 +67,7 @@ https://www.genz.jp/useful_information/android_size_quickreferencematrix/#galaxy
     - Windows 11 Home
     - 64 ビット オペレーティング システム、x64 ベース プロセッサ
 - Android Studioバージョン
-    - Android Studio Ladybug | 2024.2.1 Patch 2!
+    - Android Studio Ladybug | 2024.2.1 Patch 2
     ![image](https://github.com/user-attachments/assets/15108b1c-bfb3-4dce-b23e-c197bc501404)
 
 
@@ -72,15 +75,13 @@ https://www.genz.jp/useful_information/android_size_quickreferencematrix/#galaxy
 
 ### アプリ画面
 
-| 言語設定 | アプリ起動時 |「朝」のボタン押下時|「昼」のボタン押下時|「夜」のボタン押下時|
-|------|--------|--------|--------|--------|
-|
-
-### 画面遷移＆画面イメージ図
-- https://www.figma.com/design/LiaE4Ot2XwJdX698Pt7pWt/10%E7%A7%92%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%88%E3%81%A7%E6%AD%A2%E3%82%81%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0_AndroidApp?node-id=0-1&p=f&t=d2l0FqmzNADbf8hp-0
+| アプリ起動時 |スタートボタン押下時|ストップボタン押下時<br>9.5秒未満|ストップボタン押下時<br>9.5秒以上かつ10秒未満|ストップボタン押下時<br>10秒ちょうど|ストップボタン押下時<br>10秒超過かつ10.5秒以下|ストップボタン押下時<br>10.5秒超過|リトライボタン押下時|
+|------|--------|--------|--------|--------|------|--------|--------|
+|![Screenshot_20250117_011326_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/4e2440d9-c7e5-468c-be85-89686eef7bfc)|![Screenshot_20250117_011329_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/a1755000-a19c-41f1-9f43-ced56fd29a5c)|![Screenshot_20250117_011448_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/f57428f4-fc47-438d-9251-f67946d166b1)|![Screenshot_20250117_011423_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/ceccd616-7765-4619-bf0d-580ed8b7b172)|![Screenshot_20250117_011346_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/3ad21bb8-64e9-4b1a-90cb-b5bab454d25a)|![Screenshot_20250117_011443_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/611ad2e3-33a9-4d78-9856-f2afffe17e63)|![Screenshot_20250117_011531_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/8b4d0bf7-9422-4d7a-9987-2d7000b178ce)|![Screenshot_20250117_011536_exactly_10_seconds_game_android_app](https://github.com/user-attachments/assets/d13aaf7e-d681-499b-ac4f-6cab2f2dbbbe)|
 
 
-### READMEファイル参考
+## 画面遷移＆画面イメージ図
+https://www.figma.com/design/LiaE4Ot2XwJdX698Pt7pWt/10%E7%A7%92%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%88%E3%81%A7%E6%AD%A2%E3%82%81%E3%82%8B%E3%82%B2%E3%83%BC%E3%83%A0_AndroidApp?node-id=0-1&p=f&t=d2l0FqmzNADbf8hp-0
 
+## READMEファイル参考
 https://qiita.com/shun198/items/c983c713452c041ef787
-
